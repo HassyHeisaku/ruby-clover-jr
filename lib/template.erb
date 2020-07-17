@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= @config[:input_file] %></title>
+</head>
+<body>
+<script type="text/javascript">
+<%= @config[:tag_map] %>
+</script>
+<style type="text/css">
+<!--
+html {
+  font-size: 16pt;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;
+  color: #333;
+  width: 90%;
+}
+div.desc {
+    width: 95%;
+    margin:auto;
+}
+
+
+h1{
+    position: relative;
+    padding: 0.25rem 0.5rem 0.25rem 30px;
+	font-size:1.3rem;
+	text-align:left;
+	border-top: solid 1px #325A8C;
+	border-bottom: solid 1px #325A8C;
+}
+h1::before,
+h1::after{
+	content: '';
+	position: absolute;
+	top: -10px;
+	width: 1px;
+	height: calc(100% + 20px);
+	background-color: #325A8C;
+}
+h1::before{left: 10px;}
+h1::after{right: 10px;}
+
+h2 {
+    font-size: 1.2rem;
+    padding: 0.25rem 2.0rem;
+    position: relative;
+    background: #eeeeee;
+    border-bottom: solid 3px #dddddd;
+}
+h2::before,
+h2::after{
+  content: "□";
+  position: absolute;
+}
+h2::before{
+  left:0;
+  top:-3px;
+}
+h2::after{
+  left: 5px;
+  top: 3px;
+  color: #A1B8D1;
+}
+h3 {
+    font-size: 1.2rem;
+    padding: 0.25rem 1.0rem;
+    background: #dddddd;
+    border-left: solid 5px #cccccc;
+}
+
+h4,h5, h6 {
+    font-size: 1.2rem;
+    padding: 0.25rem 1.0rem;
+    font-weight: bold;
+    margin: 5px 0 5px;
+}
+
+p {
+  margin: 1rem 1rem; 
+}
+
+pre code {
+    white-space: pre;
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    font-size: 1.0rem;
+    line-height: 1.5rem;
+    overflow: auto;
+    border-radius: 3px;
+    padding: 6px 10px;
+}
+
+blockquote
+{
+  border-left: 4px solid #ddd;
+  padding: 0 15px;
+  color: #777777;
+  margin: 10px 0;
+}
+blockquote > :first-child {
+  margin-top: 0;
+}
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+table
+{
+  border-collapse: collapse;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+table tr
+{
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n)
+{
+  background-color: #f8f8f8;
+}
+table tr th[align="center"], table tr td[align="center"] {
+  text-align: center;
+}
+table tr th[align="right"], table tr td[align="right"] {
+  text-align: right;
+}
+table tr th, table tr td
+{
+  border: 1px solid #ccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+/* tag cloud */
+ul.tagcloud{
+    padding: 0rem 0rem;
+    width: 95%;
+    background-color: white ;
+    color: Blue ;
+}
+ul.tagcloud li{
+    list-style-type: none;
+    display: inline;
+    line-height: 2.0rem;
+    margin: 5px 10px;
+}
+ul.tagcloud li.tag0{ font-size: 1.0rem; font-weight: 100; }
+ul.tagcloud li.tag1{ font-size: 1.1rem; font-weight: 200; }
+ul.tagcloud li.tag2{ font-size: 1.2rem; font-weight: 300; }
+ul.tagcloud li.tag3{ font-size: 1.3rem; font-weight: 400; }
+ul.tagcloud li.tag4{ font-size: 1.4rem; font-weight: 500; }
+ul.tagcloud li.tag5{ font-size: 1.5rem; font-weight: 600; }
+ul.tagcloud li.tag6{ font-size: 1.6rem; font-weight: 700; }
+ul.tagcloud li.tag7{ font-size: 1.7rem; font-weight: 800; }
+ul.tagcloud li.tag8{ font-size: 1.8rem; font-weight: 900; }
+ul.tagcloud li.tag9{ font-size: 1.9rem; font-weight: 900; }
+ul.tagcloud li.tag10{ font-size: 2.0rem; font-weight: 900; }
+
+
+//-->
+</style>
+<script type="text/javascript">
+/* tag cloud js */
+    window.addEventListener("DOMContentLoaded",function(){tag_place=document.getElementById("tagcloud");for(tag in tag_map)current_tag[tag]=!0,Array.prototype.push.apply(all_ids,tag_map[tag]);all_ids=all_ids.sort().filter(function(b,a,c){return c.indexOf(b)===a});calc_tag_weight();add_tagcloud(current_tag)});var current_tag={},all_ids=[],visible_ids=[],tag_place,tag_weight={};
+function calc_tag_weight(){var b=Math.max.apply(null,Object.values(tag_map).map(function(a){return a.length}));for(t in tag_map)tag_weight[t]="tag"+Math.floor(10*tag_map[t].length/b).toString()}function add_tagcloud(b){for(tag in b){var a=document.createElement("li");a.textContent=tag;a.className=tag_weight[tag];a.onclick=function(){filter_it(this)};a.style.cursor="pointer";a.style.color=b[tag]?"blue":"#aaaaaa";tag_place.appendChild(a)}}
+function lists_to_list(b){return Array.prototype.concat.apply([],b).sort().filter(function(a,c,d){return d.indexOf(a)===c})}
+function filter_it(b){tag=b.textContent;current_tag[tag]=!current_tag[tag];visible_ids=1==current_tag[tag]?visible_ids.concat(tag_map[tag]).sort().filter(function(a,c,d){return d.indexOf(a)===c}):visible_ids.filter(function(a){return-1==tag_map[tag].indexOf(a)});for(tag in tag_map)current_tag[tag]=!1;for(tag in tag_map)for(b=0;b<visible_ids.length;b++)if(-1!=tag_map[tag].indexOf(visible_ids[b])){current_tag[tag]=!0;break}tag_place.textContent=null;add_tagcloud(current_tag);all_ids.forEach(function(a,
+        c){document.getElementById(a).style.display="none"});visible_ids.forEach(function(a,c){document.getElementById(a).style.display="block"})};
+window.addEventListener("DOMContentLoaded",function(){for(var a=document.getElementsByClassName("desc"),b=0;b<a.length;b++)e=a.item(b),e.style.display="none";a=document.getElementsByClassName("title");for(b=0;b<a.length;b++)e=a.item(b),e.onclick=function(){toggle_it(this)}});function toggle_it(a){target=a.nextElementSibling;target.style.display="none"==target.style.display?"block":"none"};
+</script>
+<ul id="tagcloud" class="tagcloud"></ul>
+<main class="main-list">
+<div class="article-list" id="article-list" >
+    <%  @contents.each do |content| %>
+        <div class="article" id="<%= content[:id] %>" >
+            <time class="date" datetime="<%= content[:date].strftime('%Y-%m-%d') %>"><%= content[:date].strftime('%Y-%m-%d') %></time>
+            <h1 class="title"><%= content[:title] %></h1>
+            <div class="desc"><%= content[:contents] %></div>
+        </div>
+    <% end %>
+</div>
+</main>
+</body>
+</html>

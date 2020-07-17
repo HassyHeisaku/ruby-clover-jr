@@ -1,0 +1,71 @@
+2020-07-17  hassy
+	* Japanese sample [tags%Japanese%日本語%sample]:  
+	## 見出しh2
+	ですが、どうでしょう？
+	### 見出しh3
+	ですよね
+	#### 見出しh4
+	さらに
+	##### 見出しh5
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	
+	
+	- 過剰
+	- に箇条
+	
+	~~~ bash
+	$ find ./ -name "*.html" | xargs grep hoge
+	#=> pre code sample
+	~~~
+	
+	1. オーダーリスト
+	2. 順番
+	
+	|hoge|fuga|desu|
+	|----|----|----|
+	|そう|なん|です|
+	|so-|nann|desu|
+	
+	> 引用してみたりして
+	
+	イメージはちょっと特殊なタグを使います
+	~~~ plaintext
+	\%img:logo.png:20%
+	#=> %tag:filename:width%
+	~~~
+	%img:logo.png:20%
+	* English sample [tags%English%sample]:  
+	## heading h2
+	How about this?
+	### heading h3
+	How do you feel?
+	#### Headingしh4
+	What is next?
+	##### Heading h5
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	
+	- List
+	- of the list
+	
+	~~~ bash
+	$ find ./ -name "*.html" | xargs grep hoge
+	#=> pre code sample
+	~~~
+	
+	1. ordered list
+	2. I am number 2
+	
+	|hoge|fuga|desu|
+	|----|----|----|
+	|yes|that's|right|
+	|so-|nann|desu|
+	
+	> quote. 
+	
+	image uses unique tag.
+	~~~ plaintext
+	\%img:logo.png:20%
+	#=> %tag:filename:width%
+	~~~
+	
+	%img:logo.png:20%
