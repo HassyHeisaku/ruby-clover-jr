@@ -3,6 +3,7 @@ Encoding.default_external = 'utf-8'
 require "rubygems"
 require "bundler/setup"
 require 'kramdown'
+require 'kramdown-parser-gfm'
 require 'base64'
 require 'pp'
 require 'erb'
